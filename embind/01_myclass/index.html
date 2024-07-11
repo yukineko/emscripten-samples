@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <script>
+    var Module = {
+      onRuntimeInitialized: function() {
+        let myclass = new Module.MyClass(10, "hello");
+        myclass.increment()
+        console.log("X=", myclass.x)//getXとsetXはない
+        console.log("static method hello?", Module.MyClass.getStringFromInstance(myclass));
+        myclass.delete();
+
+
+//        var instance = new Module["MyClass"](10, "hello");
+//        instance["incrementX"]();
+//        instance["x"]; // 11
+//        instance["x"] = 20; // 20
+//        Module["MyClass"]["getStringFromInstance"](instance); // "hello"
+//        instance.delete();
+      }
+    };
+  </script>
+  <script src="myclass.js"></script>
+</html>
