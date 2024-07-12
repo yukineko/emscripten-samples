@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <script>
+    var Module = {
+      onRuntimeInitialized: function() {
+        // myclassの内容は変化するのでconstで定義してはいけない
+        let myclass;
+        try {
+          myclass = new Module.MyClass(10, "hello");
+          myclass.increment()
+          return
+        } finally {
+          myclass.delete();
+          console.log("finally")
+        }
+
+//        var instance = new Module["MyClass"](10, "hello");
+//        instance["incrementX"]();
+//        instance["x"]; // 11
+//        instance["x"] = 20; // 20
+//        Module["MyClass"]["getStringFromInstance"](instance); // "hello"
+//        instance.delete();
+      }
+    };
+  </script>
+  <script src="myclass.js"></script>
+</html>
