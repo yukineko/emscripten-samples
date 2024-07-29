@@ -3,11 +3,22 @@
   <script>
     var Module = {
       onRuntimeInitialized: function() {
-        let myclass = new Module.MyClass(10, "hello");
-        myclass.increment()
-        console.log("X=", myclass.x)//getXとsetXはない
-        console.log("static method hello?", Module.MyClass.getStringFromInstance(myclass));
-        myclass.delete();
+        let myclass
+        try {
+          myclass = new Module.MyClass(10, "hello");
+          myclass.increment()
+          throw new Error("error")
+          console.log("X=", myclass.x)//getXとsetXはない
+          console.log("static method hello?", Module.MyClass.getStringFromInstance(myclass));
+        }catch(error){
+          console.error("exception thrown")
+        } finally{
+          if(myclass){
+            myclass.delete();
+          }
+
+        }
+
 
 
 //        var instance = new Module["MyClass"](10, "hello");

@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <script>
+    async function myLongRunningProcess(x, milliseconds) {
+      // sleep for the specified number of milliseconds
+      await new Promise(resolve => setTimeout(resolve, milliseconds));
+      x.method();
+      x.delete();
+    }
+    var Module = {
+      onRuntimeInitialized: function() {
+          let y = new Module.MyClass(10, "hello");
+          myLongRunningProcess(y.clone(), 5000)
+          myLongRunningProcess(y.clone(), 3000)
+          console.log(Module)
+          y.delete()
+          
+      }
+
+
+//        var instance = new Module["MyClass"](10, "hello");
+//        instance["incrementX"]();
+//        instance["x"]; // 11
+//        instance["x"] = 20; // 20
+//        Module["MyClass"]["getStringFromInstance"](instance); // "hello"
+//        instance.delete();
+      
+    };
+  </script>
+  <script src="myclass.js"></script>
+</html>

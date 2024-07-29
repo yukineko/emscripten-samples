@@ -4,4 +4,4 @@ all:
 	serve
 
 clean:
-	rm *.js
+	rm *.js *.wasm

@@ -1,0 +1,10 @@
+# value_object/value_array
+emscripten::value_objectとemescripten::value_objectはそれぞれJavascriptのObjectに対してパターンの制限をかけている
+
+その上でwasmの中では型が有効になる 
+
+もともとjsには構造体はないのでbindする対象がない
+
+また、この定義でclassが導入されるということもない
+
+jsのObjectは構造体と一致させる必要がある。この範囲をはずすと例外がおこるので注意

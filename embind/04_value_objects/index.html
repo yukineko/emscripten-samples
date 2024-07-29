@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <script>
+    var Module = {
+      onRuntimeInitialized: function() {
+        const person = Module.findPerson([10.0, 20.0]);
+        console.log(person)
+        // const person1 = Module.findPerson([10.0, 20.0, 30.0]); // exception
+        // const person2 = Module.findPerson([10.0]); // exception
+
+      }
+      
+    };
+  </script>
+  <script src="value_objects.js"></script>
+</html>
