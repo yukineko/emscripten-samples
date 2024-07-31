@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <script>
+    var Module = {
+      onRuntimeInitialized: function() {
+        const c_ = Module.createC();
+        console.log("c_(int)", c_); // new & ownership js
+        const ptr = Module.passThrough(c_);
+        console.log("ptr", ptr) // pointer 上のやつと一緒
+        setTimeout(() => {
+          c_.delete();
+          console.log("c_(int)", c_); // delete
+        }, 2000)
+      }
+    };
+  </script>
+  <script src="constructor.js"></script>
+</html>
